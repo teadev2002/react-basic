@@ -1,6 +1,6 @@
 import React from "react";
 import Swal from "sweetalert2";
-
+import ChildComponent from "./ChildComponent";
 class MyComponent extends React.Component {
   /**
    * JSX => return block <div> </div> bọc tất cả phần tử hoặc có thể dùng:
@@ -11,8 +11,13 @@ class MyComponent extends React.Component {
   name = "Anh Hoang";
   handleClickButton = () => {
     Swal.fire({
-      icon: "question",
+      toast: true,
+      position: "top",
+      showConfirmButton: false,
+      icon: "info",
       title: ` Great , ${this.name} `,
+      timer: 1000,
+      timerProgressBar: true,
     });
   };
 
@@ -30,6 +35,9 @@ class MyComponent extends React.Component {
             Touch me
           </button>
         </div>
+        <ChildComponent name={"child 1"} />
+        <ChildComponent name={"child 2"} />
+        <ChildComponent name={"child 3"} />
       </>
     );
   }

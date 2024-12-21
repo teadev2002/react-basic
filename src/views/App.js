@@ -20,12 +20,12 @@ function App() {
         {/* <MyProfile /> */}
         {/* <MyButton /> */}
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        {/* <MyComponent />
-        <MySweetAlert /> <br></br>
-        <MyToast /> */}
-        <MyInputState />
+        <MyComponent />
+        {/* <MySweetAlert /> <br></br>
+        <MyToast />  */}
+        {/* <MyInputState /> */}
         <MyToastUseEffect />
-        <MyInputForm />
+        {/* <MyInputForm /> */}
       </header>
     </div>
   );
