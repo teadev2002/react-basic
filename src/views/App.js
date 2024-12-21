@@ -7,6 +7,7 @@ import MySweetAlert from "./Example/MySweetAlert";
 import MyToast from "./Example/MyToast";
 import MyToastUseEffect from "./Example/MyToastUseEffect";
 import MyInputState from "./Example/MyInputState";
+import MyInputForm from "./Example/MyInputForm";
 /**
  * 2 components: class component / function component ( function, arrow)
  * state là 1 object gồm key và value
@@ -16,14 +17,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <MyProfile />
-        <MyButton />
+        {/* <MyProfile /> */}
+        {/* <MyButton /> */}
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <MyComponent />
+        {/* <MyComponent />
         <MySweetAlert /> <br></br>
-        <MyToast />
+        <MyToast /> */}
         <MyInputState />
         <MyToastUseEffect />
+        <MyInputForm />
       </header>
     </div>
   );

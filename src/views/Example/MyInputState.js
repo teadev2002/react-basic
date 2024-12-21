@@ -3,13 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 class MyInputState extends React.Component {
   state = {
-    name: `Messi M10`,
+    name: ``,
   };
 
   handleOnChangeName = (event) => {
     this.setState({
       name: event.target.value,
     });
+    console.log(this.state);
   };
   render() {
     return (
