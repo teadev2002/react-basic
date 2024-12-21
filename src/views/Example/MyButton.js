@@ -7,7 +7,7 @@ class MyButton extends React.Component {
       <a
         target="_blank"
         href="https://www.facebook.com/"
-        className="btn btn-outline-primary"
+        className="btn btn-outline-success"
       >
         Click me
       </a>
