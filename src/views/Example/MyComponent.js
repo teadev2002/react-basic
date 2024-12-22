@@ -8,11 +8,29 @@ class MyComponent extends React.Component {
    *
    *
    */
-  name = "Anh Hoang";
 
   state = {
-    name: "Hello world",
+    firstName: "",
+    age: "",
+    arrJobs: [
+      { id: "abcJob1", title: "BE", salary: "1000 $" },
+      { id: "abcJob2", title: "FE", salary: "900 $" },
+      { id: "abcJob3", title: "Tester", salary: "800 $" },
+    ],
   };
+
+  handleChangeFirstName = (event) => {
+    this.setState({
+      firstName: event.target.value,
+    });
+  };
+  handleChangeAge = (event) => {
+    this.setState({
+      age: event.target.value,
+    });
+  };
+
+  name = "Anh Hoang";
 
   handleClickButton = () => {
     Swal.fire({
@@ -28,20 +46,41 @@ class MyComponent extends React.Component {
   };
 
   render() {
-    let name = "The Anh";
-
     return (
       <>
-        <div className="first">Hello {name} </div>
-        <div className="second">
+        <div>
+          <input
+            className="form-control"
+            placeholder="FirstName"
+            type="text"
+            value={this.state.firstName}
+            onChange={(event) => this.handleChangeFirstName(event)}
+          />
+        </div>
+        <div>
+          <input
+            className="form-control"
+            placeholder="age"
+            type="number"
+            value={this.state.age}
+            onChange={(event) => this.handleChangeAge(event)}
+          />
+        </div>
+
+        {/* <div className="second">
           <button
             className="btn btn-danger"
             onClick={() => this.handleClickButton()}
           >
-            Touch me
+            Click me
           </button>
-        </div>
-        <ChildComponent name={"Con Bong"} age={"23"} />
+        </div> */}
+
+        <ChildComponent
+          name={this.state.firstName}
+          age={this.state.age}
+          arrJobs={this.state.arrJobs}
+        />
       </>
     );
   }
