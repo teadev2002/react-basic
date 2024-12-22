@@ -24,7 +24,7 @@ function App() {
         {/* <MySweetAlert /> <br></br>
         <MyToast />  */}
         {/* <MyInputState /> */}
-        <MyToastUseEffect />
+        {/* <MyToastUseEffect /> */}
         {/* <MyInputForm /> */}
       </header>
     </div>

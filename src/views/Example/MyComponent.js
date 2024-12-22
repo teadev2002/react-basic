@@ -9,6 +9,11 @@ class MyComponent extends React.Component {
    *
    */
   name = "Anh Hoang";
+
+  state = {
+    name: "Hello world",
+  };
+
   handleClickButton = () => {
     Swal.fire({
       toast: true,
@@ -19,6 +24,7 @@ class MyComponent extends React.Component {
       timer: 1000,
       timerProgressBar: true,
     });
+    console.log("check state: ", this.state.name);
   };
 
   render() {
@@ -35,9 +41,7 @@ class MyComponent extends React.Component {
             Touch me
           </button>
         </div>
-        <ChildComponent name={"child 1"} />
-        <ChildComponent name={"child 2"} />
-        <ChildComponent name={"child 3"} />
+        <ChildComponent name={"Con Bong"} age={"23"} />
       </>
     );
   }
