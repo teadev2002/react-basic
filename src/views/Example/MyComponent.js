@@ -13,9 +13,9 @@ class MyComponent extends React.Component {
     firstName: "",
     age: "",
     arrJobs: [
-      { id: "abcJob1", title: "BE", salary: "1000 $" },
-      { id: "abcJob2", title: "FE", salary: "900 $" },
-      { id: "abcJob3", title: "Tester", salary: "800 $" },
+      { id: "abcJob1", title: "BE", salary: "1000 " },
+      { id: "abcJob2", title: "FE", salary: "900 " },
+      { id: "abcJob3", title: "Tester", salary: "800" },
     ],
   };
 

@@ -1,46 +1,80 @@
 import React from "react";
 import Swal from "sweetalert2";
 
-// class ChildComponent extends React.Component {
-//   render() {
-//     let { name, age, arrJobs } = this.props;
-//     console.log("Check props\n name: ", name, " | age: ", age);
+class ChildComponent extends React.Component {
+  state = {
+    showJobs: false,
+  };
 
-//     return (
-//       <>
-//         <div className="first">
-//           Props: {name} - {age}
-//         </div>
-//         <div className="jobList">
-//           {arrJobs.map((item, index) => {
-//             return (
-//               <div key={item.id}>
-//                 {item.title} - {item.salary}
-//               </div>
-//             );
-//           })}
-//         </div>
-//       </>
-//     );
-//   }
-// }
+  handleShowHide = (status) => {
+    this.setState({
+      showJobs: !this.state.showJobs,
+    });
+  };
 
-const ChildComponent = (props) => {
-  console.log("Check Child props", props);
-  let { arrJobs } = props;
-  return (
-    <>
-      <div className="list-jobs">
-        {arrJobs.map((item, index) => {
-          return (
-            <div key={item.id}>
-              {item.title} - {item.salary}
+  render() {
+    let { arrJobs } = this.props;
+    let { showJobs } = this.state;
+    let check = showJobs === true ? "showJobs = true" : "showJobs  =  false";
+    return (
+      <>
+        {showJobs === false ? (
+          <div>
+            <button
+              className="btn btn-outline-primary"
+              onClick={() => this.handleShowHide()}
+            >
+              Show
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="jobList">
+              {arrJobs.map((item, index) => {
+                return (
+                  <div key={item.id}>
+                    {item.title} - {item.salary}
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
-    </>
-  );
-};
+            <div>
+              <button
+                className="btn btn-outline-danger"
+                onClick={() => this.handleShowHide()}
+              >
+                Hide
+              </button>
+            </div>
+          </>
+        )}
+      </>
+    );
+  }
+}
+
+// dùng  function component như thế này khi chúng ta chỉ có props và render dữ liệu và khi dùng với thg hook
+
+// const ChildComponent = (props) => {
+//   console.log("Check Child props", props);
+//   let { name, age, arrJobs } = props;
+
+//   return (
+//     <>
+//       <div className="props">
+//         Props: {name} - {age}
+//       </div>
+//       <div className="list-jobs">
+//         {arrJobs.map((item, index) => {
+//           return (
+//             <div key={item.id}>
+//               {item.title} - {item.salary}
+//             </div>
+//           );
+//         })}
+//       </div>
+//     </>
+//   );
+// };
 
 export default ChildComponent;
