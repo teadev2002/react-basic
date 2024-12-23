@@ -1,6 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import ChildComponent from "./ChildComponent";
+import AddComponent from "./AddComponent";
 class MyComponent extends React.Component {
   /**
    * JSX => return block <div> </div> bọc tất cả phần tử hoặc có thể dùng:
@@ -48,7 +49,7 @@ class MyComponent extends React.Component {
   render() {
     return (
       <>
-        <div>
+        {/* <div>
           <input
             className="form-control"
             placeholder="FirstName"
@@ -65,7 +66,7 @@ class MyComponent extends React.Component {
             value={this.state.age}
             onChange={(event) => this.handleChangeAge(event)}
           />
-        </div>
+        </div> */}
 
         {/* <div className="second">
           <button
@@ -75,10 +76,10 @@ class MyComponent extends React.Component {
             Click me
           </button>
         </div> */}
-
+        <AddComponent />
         <ChildComponent
-          name={this.state.firstName}
-          age={this.state.age}
+          // name={this.state.firstName}
+          // age={this.state.age}
           arrJobs={this.state.arrJobs}
         />
       </>

@@ -1,5 +1,4 @@
 import React from "react";
-import Swal from "sweetalert2";
 
 class ChildComponent extends React.Component {
   state = {
@@ -11,17 +10,16 @@ class ChildComponent extends React.Component {
       showJobs: !this.state.showJobs,
     });
   };
-
   render() {
     let { arrJobs } = this.props;
-    let { showJobs } = this.state;
-    let check = showJobs === true ? "showJobs = true" : "showJobs  =  false";
+    let showJobs = this.state.showJobs;
+
     return (
       <>
         {showJobs === false ? (
           <div>
             <button
-              className="btn btn-outline-primary"
+              className="btn btn-primary"
               onClick={() => this.handleShowHide()}
             >
               Show
@@ -29,7 +27,7 @@ class ChildComponent extends React.Component {
           </div>
         ) : (
           <>
-            <div className="jobList">
+            <div>
               {arrJobs.map((item, index) => {
                 return (
                   <div key={item.id}>
@@ -38,9 +36,10 @@ class ChildComponent extends React.Component {
                 );
               })}
             </div>
+
             <div>
               <button
-                className="btn btn-outline-danger"
+                className="btn btn-danger"
                 onClick={() => this.handleShowHide()}
               >
                 Hide
