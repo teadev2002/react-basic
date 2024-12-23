@@ -11,9 +11,10 @@ class ChildComponent extends React.Component {
     });
   };
   handleDelete = (job) => {
-    console.log("handleDelete", job);
-    this.props.deleteJob(job);
+    console.log("handleDelete", job); // 2. xem có nhận về 1 cái object đã chọn ko, sau đó qua thg cha
+    this.props.deleteJob(job); //5. thg cha truyền về cho props thì nhận. Done
     Swal.fire({
+      // thông báo thêm cho đẹp
       toast: true,
       icon: "error",
       title: `Delete ${job.title}`,
@@ -45,6 +46,7 @@ class ChildComponent extends React.Component {
                   <div key={item.id}>
                     {item.title} - {item.salary} &nbsp;{" "}
                     <span onClick={() => this.handleDelete(item)}>❌</span>
+                    {/* 1. đặt sự kiện onclick ở nút xóa, cho nó cái hàm, có data là item */}
                   </div>
                 );
               })}

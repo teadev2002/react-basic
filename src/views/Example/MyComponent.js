@@ -20,12 +20,12 @@ class MyComponent extends React.Component {
       arrJobs: [...this.state.arrJobs, job],
     });
   };
-
+  // 3. tạo hàm xử lí chức năng xóa
   deleteJob = (job) => {
     let currentJob = this.state.arrJobs;
-    currentJob = currentJob.filter((item) => item.id !== job.id);
+    currentJob = currentJob.filter((item) => item.id !== job.id); // lọc ra những item mà có id khác với id đã chọn
     this.setState({
-      arrJobs: currentJob,
+      arrJobs: currentJob, // set lại state là mảng sau khi đã được lọc
     });
   };
 
@@ -61,7 +61,7 @@ class MyComponent extends React.Component {
         <AddComponent addNewJob={this.addNewJob} />
         <ChildComponent
           arrJobs={this.state.arrJobs}
-          deleteJob={this.deleteJob}
+          deleteJob={this.deleteJob} // 4. truyền về cho thg con
         />
       </>
     );
