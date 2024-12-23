@@ -3,13 +3,6 @@ import Swal from "sweetalert2";
 import ChildComponent from "./ChildComponent";
 import AddComponent from "./AddComponent";
 class MyComponent extends React.Component {
-  /**
-   * JSX => return block <div> </div> bọc tất cả phần tử hoặc có thể dùng:
-   * fragment của react:    <> </>     để bọc
-   *
-   *
-   */
-
   state = {
     firstName: "",
     age: "",
@@ -22,8 +15,17 @@ class MyComponent extends React.Component {
 
   addNewJob = (job) => {
     console.log("check job from parent", job);
+
     this.setState({
       arrJobs: [...this.state.arrJobs, job],
+    });
+  };
+
+  deleteJob = (job) => {
+    let currentJob = this.state.arrJobs;
+    currentJob = currentJob.filter((item) => item.id !== job.id);
+    this.setState({
+      arrJobs: currentJob,
     });
   };
 
@@ -56,38 +58,10 @@ class MyComponent extends React.Component {
   render() {
     return (
       <>
-        {/* <div>
-          <input
-            className="form-control"
-            placeholder="FirstName"
-            type="text"
-            value={this.state.firstName}
-            onChange={(event) => this.handleChangeFirstName(event)}
-          />
-        </div>
-        <div>
-          <input
-            className="form-control"
-            placeholder="age"
-            type="number"
-            value={this.state.age}
-            onChange={(event) => this.handleChangeAge(event)}
-          />
-        </div> */}
-
-        {/* <div className="second">
-          <button
-            className="btn btn-danger"
-            onClick={() => this.handleClickButton()}
-          >
-            Click me
-          </button>
-        </div> */}
         <AddComponent addNewJob={this.addNewJob} />
         <ChildComponent
-          // name={this.state.firstName}
-          // age={this.state.age}
           arrJobs={this.state.arrJobs}
+          deleteJob={this.deleteJob}
         />
       </>
     );

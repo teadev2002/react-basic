@@ -1,5 +1,5 @@
 import React from "react";
-
+import Swal from "sweetalert2";
 class ChildComponent extends React.Component {
   state = {
     showJobs: false,
@@ -8,6 +8,18 @@ class ChildComponent extends React.Component {
   handleShowHide = (status) => {
     this.setState({
       showJobs: !this.state.showJobs,
+    });
+  };
+  handleDelete = (job) => {
+    console.log("handleDelete", job);
+    this.props.deleteJob(job);
+    Swal.fire({
+      toast: true,
+      icon: "error",
+      title: `Delete ${job.title}`,
+      showConfirmButton: false,
+      timer: 1000,
+      position: "top",
     });
   };
   render() {
@@ -31,7 +43,8 @@ class ChildComponent extends React.Component {
               {arrJobs.map((item, index) => {
                 return (
                   <div key={item.id}>
-                    {item.title} - {item.salary}
+                    {item.title} - {item.salary} &nbsp;{" "}
+                    <span onClick={() => this.handleDelete(item)}>❌</span>
                   </div>
                 );
               })}
@@ -51,29 +64,5 @@ class ChildComponent extends React.Component {
     );
   }
 }
-
-// dùng  function component như thế này khi chúng ta chỉ có props và render dữ liệu và khi dùng với thg hook
-
-// const ChildComponent = (props) => {
-//   console.log("Check Child props", props);
-//   let { name, age, arrJobs } = props;
-
-//   return (
-//     <>
-//       <div className="props">
-//         Props: {name} - {age}
-//       </div>
-//       <div className="list-jobs">
-//         {arrJobs.map((item, index) => {
-//           return (
-//             <div key={item.id}>
-//               {item.title} - {item.salary}
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </>
-//   );
-// };
 
 export default ChildComponent;
