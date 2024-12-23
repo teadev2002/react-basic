@@ -2,13 +2,13 @@ import React from "react";
 import Swal from "sweetalert2";
 class AddComponent extends React.Component {
   state = {
-    titleJob: "",
+    title: "",
     salary: "",
   };
 
-  handleChangetitleJob = (event) => {
+  handleChangeTitle = (event) => {
     this.setState({
-      titleJob: event.target.value,
+      title: event.target.value,
     });
   };
 
@@ -20,6 +20,17 @@ class AddComponent extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    if (!this.state.title || !this.state.salary) {
+      Swal.fire({
+        toast: true,
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1000,
+        title: "No Data has sent",
+        position: "top",
+      });
+      return;
+    }
     Swal.fire({
       toast: true,
       icon: "success",
@@ -29,16 +40,16 @@ class AddComponent extends React.Component {
       position: "top",
     });
     console.log(this.state);
-    if (this.state.titleJob === "" || this.state.salary === "") {
-      Swal.fire({
-        toast: true,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 1000,
-        title: "No Data has sent",
-        position: "top",
-      });
-    }
+    this.props.addNewJob({
+      id: Math.floor(Math.random() * 1001),
+      title: this.state.title,
+      salary: this.state.salary,
+    });
+
+    this.setState({
+      title: "",
+      salary: "",
+    });
   };
   render() {
     return (
@@ -46,16 +57,16 @@ class AddComponent extends React.Component {
         <form>
           <input
             className="form-control"
-            placeholder="titleJob"
+            placeholder="Title"
             type="text"
-            value={this.state.titleJob}
-            onChange={(event) => this.handleChangetitleJob(event)}
+            value={this.state.title}
+            onChange={(event) => this.handleChangeTitle(event)}
           />
           <br />
           <input
             className="form-control"
-            placeholder="salary"
-            type="text"
+            placeholder="Salary"
+            type="number"
             value={this.state.salary}
             onChange={(event) => this.handleChangeSalary(event)}
           />

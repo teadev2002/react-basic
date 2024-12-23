@@ -20,6 +20,13 @@ class MyComponent extends React.Component {
     ],
   };
 
+  addNewJob = (job) => {
+    console.log("check job from parent", job);
+    this.setState({
+      arrJobs: [...this.state.arrJobs, job],
+    });
+  };
+
   handleChangeFirstName = (event) => {
     this.setState({
       firstName: event.target.value,
@@ -76,7 +83,7 @@ class MyComponent extends React.Component {
             Click me
           </button>
         </div> */}
-        <AddComponent />
+        <AddComponent addNewJob={this.addNewJob} />
         <ChildComponent
           // name={this.state.firstName}
           // age={this.state.age}
