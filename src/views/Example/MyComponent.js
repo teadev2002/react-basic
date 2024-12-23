@@ -18,11 +18,25 @@ class MyComponent extends React.Component {
   };
   deleteJob = (job) => {
     let currentJob = this.state.arrJobs;
-    currentJob = currentJob.filter((item) => item.id !== job.id); // lọc ra những item mà có id khác với id đã chọn
+    currentJob = currentJob.filter((item) => item.id !== job.id);
     this.setState({
-      arrJobs: currentJob, // set lại state là mảng sau khi đã được lọc
+      arrJobs: currentJob,
     });
   };
+
+  componentDidUpdate(preProps, preState) {
+    console.log(
+      ">> run didUpdate:  ",
+      "prev state: ",
+      preState,
+      " current state: ",
+      this.state
+    );
+  }
+
+  componentDidMount() {
+    console.log("componentDidMount check dùng để lấy api, gọi api");
+  }
 
   render() {
     return (

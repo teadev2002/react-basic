@@ -11,10 +11,9 @@ class ChildComponent extends React.Component {
     });
   };
   handleDelete = (job) => {
-    console.log("handleDelete", job); // 2. xem có nhận về 1 cái object đã chọn ko, sau đó qua thg cha
-    this.props.deleteJob(job); //5. thg cha truyền về cho props thì nhận. Done
+    console.log("handleDelete", job);
+    this.props.deleteJob(job);
     Swal.fire({
-      // thông báo thêm cho đẹp
       toast: true,
       icon: "error",
       title: `Delete ${job.title}`,
@@ -31,7 +30,7 @@ class ChildComponent extends React.Component {
         {showJobs === false ? (
           <div>
             <button
-              className="btn btn-primary"
+              className="btn btn-outline-primary"
               onClick={() => this.handleShowHide()}
             >
               Show
@@ -51,7 +50,7 @@ class ChildComponent extends React.Component {
             </div>
             <div>
               <button
-                className="btn btn-danger"
+                className="btn btn-outline-danger"
                 onClick={() => this.handleShowHide()}
               >
                 Hide
@@ -63,5 +62,4 @@ class ChildComponent extends React.Component {
     );
   }
 }
-
 export default ChildComponent;
