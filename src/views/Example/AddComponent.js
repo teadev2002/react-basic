@@ -26,7 +26,7 @@ class AddComponent extends React.Component {
         icon: "info",
         title: "No Data",
         timer: 700,
-        position: "top",
+        position: "top-end",
         showConfirmButton: false,
       });
       return;
@@ -35,8 +35,8 @@ class AddComponent extends React.Component {
       toast: true,
       icon: "success",
       title: `Job: ${this.state.title} \n Salary: ${this.state.salary} \n Has Added `,
-      timer: 3000,
-      position: "top",
+      timer: 1000,
+      position: "top-end",
       showConfirmButton: false,
     });
 

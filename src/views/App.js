@@ -8,6 +8,9 @@ import MyToast from "./Example/MyToast";
 import MyToastUseEffect from "./Example/MyToastUseEffect";
 import MyInputState from "./Example/MyInputState";
 import MyInputForm from "./Example/MyInputForm";
+import ListTodo from "./Todos/ListTodo";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 /**
  * 2 components: class component / function component ( function, arrow)
  * state là 1 object gồm key và value
@@ -20,12 +23,13 @@ function App() {
         {/* <MyProfile /> */}
         {/* <MyButton /> */}
         <img src={logo} className="App-logo" alt="logo" />
-        <MyComponent />
+        {/* <MyComponent /> */}
         {/* <MySweetAlert /> <br></br>
         <MyToast />  */}
         {/* <MyInputState /> */}
         {/* <MyToastUseEffect /> */}
         {/* <MyInputForm /> */}
+        <ListTodo />
       </header>
     </div>
   );
