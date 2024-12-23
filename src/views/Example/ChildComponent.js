@@ -5,7 +5,7 @@ class ChildComponent extends React.Component {
     showJobs: false,
   };
 
-  handleShowHide = (status) => {
+  handleShowHide = () => {
     this.setState({
       showJobs: !this.state.showJobs,
     });
@@ -26,7 +26,6 @@ class ChildComponent extends React.Component {
   render() {
     let { arrJobs } = this.props;
     let showJobs = this.state.showJobs;
-
     return (
       <>
         {showJobs === false ? (
@@ -44,14 +43,12 @@ class ChildComponent extends React.Component {
               {arrJobs.map((item, index) => {
                 return (
                   <div key={item.id}>
-                    {item.title} - {item.salary} &nbsp;{" "}
+                    {item.title} - {item.salary}{" "}
                     <span onClick={() => this.handleDelete(item)}>❌</span>
-                    {/* 1. đặt sự kiện onclick ở nút xóa, cho nó cái hàm, có data là item */}
                   </div>
                 );
               })}
             </div>
-
             <div>
               <button
                 className="btn btn-danger"

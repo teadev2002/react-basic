@@ -23,23 +23,23 @@ class AddComponent extends React.Component {
     if (!this.state.title || !this.state.salary) {
       Swal.fire({
         toast: true,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 1000,
-        title: "No Data has sent",
+        icon: "info",
+        title: "No Data",
+        timer: 700,
         position: "top",
+        showConfirmButton: false,
       });
       return;
     }
     Swal.fire({
       toast: true,
       icon: "success",
-      showConfirmButton: false,
-      timer: 1000,
-      title: "Data has sent",
+      title: `Job: ${this.state.title} \n Salary: ${this.state.salary} \n Has Added `,
+      timer: 3000,
       position: "top",
+      showConfirmButton: false,
     });
-    console.log(this.state);
+
     this.props.addNewJob({
       id: Math.floor(Math.random() * 1001),
       title: this.state.title,
@@ -53,34 +53,36 @@ class AddComponent extends React.Component {
   };
   render() {
     return (
-      <div>
+      <>
         <form>
-          <input
-            className="form-control"
-            placeholder="Title"
-            type="text"
-            value={this.state.title}
-            onChange={(event) => this.handleChangeTitle(event)}
-          />
-          <br />
-          <input
-            className="form-control"
-            placeholder="Salary"
-            type="number"
-            value={this.state.salary}
-            onChange={(event) => this.handleChangeSalary(event)}
-          />
-
-          <br />
-          <button
-            className="btn btn-success"
-            type="submit"
-            onClick={(event) => this.handleSubmit(event)}
-          >
-            Submit
-          </button>
+          <div>
+            <input
+              placeholder="Title Job"
+              className="form-control"
+              type="text"
+              value={this.state.title}
+              onChange={(event) => this.handleChangeTitle(event)}
+            />
+          </div>
+          <div>
+            <input
+              placeholder="Salary"
+              className="form-control"
+              type="number"
+              value={this.state.salary}
+              onChange={(event) => this.handleChangeSalary(event)}
+            />
+          </div>
+          <div>
+            <button
+              className="btn btn-success"
+              onClick={(event) => this.handleSubmit(event)}
+            >
+              Submit
+            </button>
+          </div>
         </form>
-      </div>
+      </>
     );
   }
 }
