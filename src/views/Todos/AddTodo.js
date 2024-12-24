@@ -18,7 +18,7 @@ class AddTodo extends React.Component {
       toast.info("No Data");
       return;
     }
-    toast.success("Add Successfull");
+    toast.success(`Add Successfull  ${this.state.title}`);
     let todo = {
       id: Math.floor(Math.random() * 1001),
       title: this.state.title,
