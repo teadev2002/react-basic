@@ -1,0 +1,36 @@
+.list-user-container {
+    padding: 20px;
+    background-color: #f05353;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      text-transform: capitalize;
+    }
+  
+    .list-user-content {
+      .child {
+        padding: 10px;
+        margin-bottom: 8px;
+        background-color:#8fd68f;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #81a3c0; // Light blue on hover
+        }
+  
+        &:last-child {
+          margin-bottom: 0; // Remove margin for the last child
+        }
+      }
+    }
+  }
+  

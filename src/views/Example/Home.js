@@ -4,11 +4,10 @@ import { toast } from "react-toastify";
 import Color from "../HOC/Color.js";
 class Home extends React.Component {
   componentDidMount() {
-    setTimeout(() => {
-      // this.props.history.push("/");
-      window.location.reload();
-      toast.success("Welcome");
-    }, 1500);
+    // setTimeout(() => {
+    //   // this.props.history.push("/");
+    //   window.location.reload();
+    // }, 1500);
   }
   render() {
     console.log("check props", this.props);
