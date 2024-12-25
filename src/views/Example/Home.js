@@ -1,12 +1,14 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { toast } from "react-toastify";
+import Color from "../HOC/Color.js";
 class Home extends React.Component {
   componentDidMount() {
     setTimeout(() => {
-      this.props.history.push("/todo");
+      // this.props.history.push("/");
+      window.location.reload();
       toast.success("Welcome");
-    }, 300);
+    }, 1500);
   }
   render() {
     console.log("check props", this.props);
@@ -18,4 +20,4 @@ class Home extends React.Component {
   }
 }
 
-export default withRouter(Home);
+export default Color(Home);
