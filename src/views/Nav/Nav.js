@@ -6,7 +6,7 @@ class Nav extends React.Component {
     return (
       <div>
         <div className="topnav">
-          <NavLink to="/" activeClassName="active" exact="true">
+          <NavLink to="/" activeClassName="active" exact={true}>
             Home
           </NavLink>
           <NavLink to="/todo">Todo</NavLink>
