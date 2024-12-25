@@ -34,7 +34,7 @@ class AddTodo extends React.Component {
       <>
         <div className="add-todo">
           <input
-            className="form-control"
+            className="form-control text-center"
             type="text"
             placeholder="Todo"
             value={this.state.title}

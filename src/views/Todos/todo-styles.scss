@@ -1,5 +1,5 @@
 .List-todo-container {
-    width: 60%;
+    width: 30%;
     margin: 20px auto;
     border: 2px solid #ddd;
     padding: 20px;
@@ -51,7 +51,10 @@
   .add-todo {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    
+    width: 30%;
+    margin: 20px auto;
+
 
     .form-control {
       flex: 1; // Takes up available space

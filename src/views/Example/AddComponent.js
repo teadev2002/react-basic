@@ -54,11 +54,17 @@ class AddComponent extends React.Component {
   render() {
     return (
       <>
-        <form>
+        <form
+          style={{
+            display: "block",
+            margin: "20px auto",
+            width: "30%",
+          }}
+        >
           <div>
             <input
               placeholder="Title Job"
-              className="form-control"
+              className="form-control text-center"
               type="text"
               value={this.state.title}
               onChange={(event) => this.handleChangeTitle(event)}
@@ -67,13 +73,13 @@ class AddComponent extends React.Component {
           <div>
             <input
               placeholder="Salary"
-              className="form-control"
+              className="form-control text-center"
               type="number"
               value={this.state.salary}
               onChange={(event) => this.handleChangeSalary(event)}
             />
           </div>
-          <div>
+          <div style={{ marginTop: "20px" }}>
             <button
               className="btn btn-success"
               onClick={(event) => this.handleSubmit(event)}
